@@ -16,11 +16,9 @@ def index():
 
     image = Image.open(request.files['image'])
 
-    image_text = pytesseract.image_to_string(
+    image_text = pytesseract.image_to_data(
         image,
         lang='eng'
     )
 
-    return jsonify({
-        'text': image_text
-    })
+    return image_text
