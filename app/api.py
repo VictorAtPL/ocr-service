@@ -18,7 +18,8 @@ def index():
 
     image_text = pytesseract.image_to_data(
         image,
-        lang='eng'
+        lang='pol',
+        config=f'--psm {request.args.get("psm")} --oem {request.args.get("oem")}'
     )
 
     return image_text
